@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+      <meta charset="utf-8">
+    <title>Test</title>
+    <style>
+      #test-area{width:100%;border:1px solid #000}
+      #test-area{height:500px}
+      #test-area{background:-webkit-linear-gradient(#d3d3d3 1px, transparent 1px),-webkit-linear-gradient(0deg, #d3d3d3 1px, #FFF 1px);background-size:10px 10px;}
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+    $(function(){
+        $("#test-area").click(function() {
+          alert(111);
+        });
+    });
+    </script>
+  </head>
+  <body>
+    <div id ="test-area"></div>
+  </body>
+</html>
