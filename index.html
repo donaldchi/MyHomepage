@@ -485,10 +485,34 @@
                 <aside class="blog aside section">
                     <div class="section-inner" id="blog">
                         <h2 class="heading">Latest Blog Posts</h2>
-                        <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
+                        <!-- Show latest blog posts -->
                         <div id="rss-feeds" class="content">
+                            <script type="text/javascript">
+                                function createHTTPRequest(){
+                                    if(window.ActiveXObject && !window.XMLHttpRequest){
+                                        try {
+                                            return (new ActiveXObject('Msxml2.XMLHTTP'));
+                                        } catch (e) {}
 
+                                        try {
+                                            retrurn (new ActiveXObject('Microsoft.XMLHTTP'));
+                                        } catch (e) {}
+                                            return (null);
+                                    } else if(window.XMLHttpRequest) {
+                                        return (new XMLHttpRequest);
+                                    } else {
+                                        return null;
+                                    }
+                                }                                
+                                var xObj = createHTTPRequest();
+                                var fName = "http://localhost/cgi-bin/blog.py";
+                                xObj.open("GET", fName, false);
+                                xObj.send(null);
+                                var sSTR = xObj.responseText;
+                                document.write(sSTR);
+                            </script>
                         </div><!--//content-->
+
                     </div><!--//section-inner-->
                 </aside><!--//section-->
                 
